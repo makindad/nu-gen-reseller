@@ -1,0 +1,112 @@
+@import "tailwindcss";
+
+/* ─────────────────────────────────────────────────────────────
+   NU-GEN Research — brand tokens
+   Edit colours here; every component reads from these tokens.
+   ───────────────────────────────────────────────────────────── */
+@theme {
+  --color-blue: #0f5fa8;
+  --color-blue-2: #1264ad;
+  --color-blue-deep: #0b4a84; /* hover/pressed state of primary blue */
+  --color-green: #4a8b2c;
+  --color-green-2: #4f8f32;
+  --color-ink: #111315;
+  --color-charcoal: #34383c;
+  --color-muted: #5c6166; /* secondary text — 6.1:1 on off-white */
+  --color-line: #e8eaec;
+  --color-line-strong: #d4d8dc;
+  --color-paper: #f7f7f4;
+  --color-white: #ffffff;
+  --color-error: #b42318; /* form validation only */
+
+  --font-sans: "Inter Variable", Inter, "Helvetica Neue", Arial, sans-serif;
+  --font-mono: ui-monospace, "SFMono-Regular", Menlo, Consolas, monospace;
+
+  --radius-xs: 2px;
+  --radius-sm: 3px;
+
+  --animate-reveal: reveal 0.7s cubic-bezier(0.2, 0.7, 0.2, 1) both;
+}
+
+@keyframes reveal {
+  from {
+    opacity: 0;
+    transform: translateY(18px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@layer base {
+  html {
+    scroll-behavior: smooth;
+    /* Keeps anchored sections clear of the sticky header */
+    scroll-padding-top: 88px;
+    -webkit-text-size-adjust: 100%;
+  }
+
+  body {
+    background: var(--color-white);
+    color: var(--color-ink);
+    font-family: var(--font-sans);
+    font-feature-settings: "cv11", "ss01";
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    text-rendering: optimizeLegibility;
+  }
+
+  ::selection {
+    background: color-mix(in srgb, var(--color-blue) 18%, transparent);
+  }
+
+  :focus-visible {
+    outline: 2px solid var(--color-blue);
+    outline-offset: 3px;
+  }
+
+  .on-dark :focus-visible {
+    outline-color: #ffffff;
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    html {
+      scroll-behavior: auto;
+    }
+    *,
+    *::before,
+    *::after {
+      animation-duration: 0.01ms !important;
+      animation-iteration-count: 1 !important;
+      transition-duration: 0.01ms !important;
+    }
+  }
+}
+
+@layer components {
+  /* Scroll reveal: only hides content once JS has confirmed it can reveal it,
+     so the page is fully readable without JavaScript. */
+  .js .reveal {
+    opacity: 0;
+    transform: translateY(18px);
+  }
+  .js .reveal.is-visible {
+    animation: var(--animate-reveal);
+    animation-delay: var(--reveal-delay, 0ms);
+  }
+
+  /* Hairline technical grid used behind product compositions */
+  .bg-tech-grid {
+    background-image:
+      linear-gradient(to right, rgb(17 19 21 / 0.06) 1px, transparent 1px),
+      linear-gradient(to bottom, rgb(17 19 21 / 0.06) 1px, transparent 1px);
+    background-size: 32px 32px;
+  }
+  .bg-tech-grid-dark {
+    background-image:
+      linear-gradient(to right, rgb(255 255 255 / 0.05) 1px, transparent 1px),
+      linear-gradient(to bottom, rgb(255 255 255 / 0.05) 1px, transparent 1px);
+    background-size: 40px 40px;
+  }
+}

@@ -126,31 +126,31 @@ export function QualitySection() {
     <section
       id="quality"
       aria-labelledby="quality-heading"
-      className="border-t border-line bg-paper py-20 sm:py-28 lg:py-32"
+      className="border-t border-line bg-paper py-14 sm:py-16 lg:py-20"
     >
       <Container>
-        <Reveal className="grid gap-8 lg:grid-cols-12 lg:items-end">
+        <Reveal className="grid gap-5 lg:grid-cols-12 lg:items-end">
           <div className="lg:col-span-7">
             <Eyebrow>{quality.label}</Eyebrow>
-            <SectionHeading id="quality-heading" className="mt-6">
+            <SectionHeading id="quality-heading" className="mt-4">
               {quality.heading}
             </SectionHeading>
           </div>
           <p className="text-[17px] leading-[1.65] text-charcoal lg:col-span-5 lg:pb-2">{quality.intro}</p>
         </Reveal>
 
-        <div className="mt-14 grid gap-10 sm:mt-16 lg:grid-cols-12 lg:gap-12">
+        <div className="mt-10 grid gap-8 lg:grid-cols-12 lg:gap-10">
           <ol className="grid gap-px self-start border border-line bg-line sm:grid-cols-2 lg:col-span-7">
             {quality.pillars.map((p, i) => (
               <Reveal as="li" key={p.code} delay={i * 80} className="bg-white">
-                <article className="flex h-full flex-col p-7 sm:p-8">
+                <article className="flex h-full flex-col p-6 sm:p-7">
                   <div className="flex items-center justify-between">
-                    <span className="inline-flex size-10 items-center justify-center bg-ink text-white">
+                    <span className="inline-flex size-11 items-center justify-center rounded-full bg-green text-white ring-[6px] ring-green/10">
                       <Icon name={p.icon} className="size-[18px]" />
                     </span>
-                    <span className="font-mono text-[11px] text-muted">{p.code}</span>
+                    <span className="font-mono text-[11px] text-green-ink">{p.code}</span>
                   </div>
-                  <h3 className="mt-8 text-[19px] font-semibold tracking-[-0.015em] text-ink">{p.title}</h3>
+                  <h3 className="mt-5 text-[19px] font-semibold tracking-[-0.015em] text-ink">{p.title}</h3>
                   <p className="mt-3 text-[15px] leading-[1.6] text-charcoal">{p.body}</p>
                 </article>
               </Reveal>

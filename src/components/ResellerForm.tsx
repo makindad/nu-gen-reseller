@@ -1,7 +1,7 @@
 "use client";
 
 import { useEffect, useRef, useState, type ChangeEvent, type FormEvent, type ReactNode } from "react";
-import { Check, ChevronDown, LoaderCircle, TriangleAlert } from "lucide-react";
+import { ArrowRight, Check, ChevronDown, LoaderCircle, TriangleAlert } from "lucide-react";
 import { application, site } from "@/content/site";
 import { Container, Eyebrow, SectionHeading } from "@/components/ui/Section";
 import { Reveal } from "@/components/ui/Reveal";
@@ -89,14 +89,17 @@ function Field({
 }) {
   return (
     <div className={className}>
-      <label htmlFor={id} className="flex items-baseline justify-between gap-3 text-[13px] font-medium text-ink">
+      <label
+        htmlFor={id}
+        className="flex items-baseline justify-between gap-3 text-[11px] font-semibold uppercase tracking-[0.1em] text-green-ink"
+      >
         <span>
           {label}
-          <span aria-hidden className="ml-0.5 text-blue">
+          <span aria-hidden className="ml-0.5 text-green">
             *
           </span>
         </span>
-        {hint && <span className="text-[12px] font-normal text-muted">{hint}</span>}
+        {hint && <span className="text-[12px] font-normal normal-case tracking-normal text-muted">{hint}</span>}
       </label>
       <div className="mt-2">{children}</div>
       {error && (
@@ -214,21 +217,22 @@ export function ResellerForm() {
     <section
       id="apply"
       aria-labelledby="apply-heading"
-      className="border-t border-line bg-paper py-20 sm:py-28 lg:py-32"
+      className="relative overflow-hidden border-t border-line bg-paper py-14 sm:py-16 lg:py-20"
     >
-      <Container className="grid gap-12 lg:grid-cols-12 lg:gap-16">
+      <div aria-hidden className="glow-green pointer-events-none absolute -bottom-80 -right-64 size-[760px]" />
+      <Container className="relative grid gap-12 lg:grid-cols-12 lg:gap-16">
         {/* Intro column */}
         <Reveal className="lg:sticky lg:top-28 lg:col-span-5 lg:self-start">
           <Eyebrow>{application.label}</Eyebrow>
-          <SectionHeading id="apply-heading" className="mt-6">
+          <SectionHeading id="apply-heading" className="mt-4">
             {application.heading}
           </SectionHeading>
-          <p className="mt-6 text-[17px] leading-[1.65] text-charcoal">{application.body}</p>
+          <p className="mt-4 text-[17px] leading-[1.65] text-charcoal">{application.body}</p>
 
-          <ol className="mt-10 hidden border-t border-line lg:block">
+          <ol className="mt-8 hidden border-t border-line lg:block">
             {application.steps.map((s, i) => (
               <li key={s.title} className="grid grid-cols-[40px_1fr] gap-3 border-b border-line py-5">
-                <span className="font-mono text-[12px] leading-6 text-blue">{String(i + 1).padStart(2, "0")}</span>
+                <span className="font-mono text-[12px] leading-6 text-green-ink">{String(i + 1).padStart(2, "0")}</span>
                 <div>
                   <p className="text-[15px] font-semibold text-ink">{s.title}</p>
                   <p className="mt-1 text-[14px] leading-[1.55] text-muted">{s.body}</p>
@@ -268,12 +272,15 @@ export function ResellerForm() {
                 noValidate
                 onSubmit={onSubmit}
                 aria-describedby="form-required-note"
-                className="p-6 sm:p-10"
+                className="p-5 sm:p-8"
               >
                 <div className="flex items-center justify-between border-b border-line pb-5">
-                  <p className="text-[12px] font-medium uppercase tracking-[0.14em] text-ink">Reseller application</p>
+                  <p className="flex items-center gap-2 text-[12px] font-medium uppercase tracking-[0.14em] text-ink">
+                    <span aria-hidden className="size-1.5 rounded-full bg-green" />
+                    Reseller application
+                  </p>
                   <p id="form-required-note" className="text-[12px] text-muted">
-                    <span className="text-blue">*</span> Required
+                    <span className="text-green">*</span> Required
                   </p>
                 </div>
 
@@ -298,7 +305,7 @@ export function ResellerForm() {
                     : ""}
                 </p>
 
-                <fieldset disabled={submitting} className="mt-7 grid gap-x-5 gap-y-6 sm:grid-cols-2">
+                <fieldset disabled={submitting} className="mt-6 grid gap-x-5 gap-y-5 sm:grid-cols-2">
                   <legend className="sr-only">Your business details</legend>
 
                   <Field id="fullName" label="Full Name" error={errors.fullName}>
@@ -542,7 +549,7 @@ export function ResellerForm() {
                       </span>
                       <span className="text-[14px] leading-[1.55] text-charcoal">
                         {application.consent}
-                        <span aria-hidden className="ml-0.5 text-blue">
+                        <span aria-hidden className="ml-0.5 text-green">
                           *
                         </span>
                       </span>
@@ -556,12 +563,12 @@ export function ResellerForm() {
                   </div>
                 </fieldset>
 
-                <div className="mt-9 border-t border-line pt-7">
+                <div className="mt-7 border-t border-line pt-6">
                   <button
                     type="submit"
                     disabled={submitting}
                     aria-busy={submitting}
-                    className="inline-flex min-h-14 w-full items-center justify-center gap-3 rounded-xs bg-blue px-7 text-[16px] font-medium text-white transition-colors duration-200 hover:bg-blue-deep disabled:cursor-progress disabled:opacity-85 sm:w-auto"
+                    className="inline-flex min-h-14 w-full items-center justify-center gap-3 rounded-full bg-blue pl-7 pr-2.5 text-[16px] font-medium text-white transition-colors duration-200 hover:bg-blue-deep disabled:cursor-progress disabled:opacity-85 sm:w-auto"
                   >
                     {submitting ? (
                       <>
@@ -569,7 +576,15 @@ export function ResellerForm() {
                         {application.submittingLabel}
                       </>
                     ) : (
-                      application.submitLabel
+                      <>
+                        {application.submitLabel}
+                        <span
+                          aria-hidden
+                          className="inline-flex size-9 items-center justify-center rounded-full bg-green text-white"
+                        >
+                          <ArrowRight className="size-4" strokeWidth={2} />
+                        </span>
+                      </>
                     )}
                   </button>
                   <p className="mt-4 text-[13px] leading-[1.55] text-muted">{application.disclaimer}</p>

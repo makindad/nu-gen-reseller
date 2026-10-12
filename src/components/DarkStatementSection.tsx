@@ -1,6 +1,7 @@
 import { primaryCta, statement } from "@/content/site";
 import { Button } from "@/components/ui/Button";
 import { Container, Eyebrow } from "@/components/ui/Section";
+import { richHeading } from "@/components/ui/nowrapBrand";
 import { Reveal } from "@/components/ui/Reveal";
 
 /** Concentric measurement rings — a quiet, instrument-like graphic. */
@@ -54,6 +55,7 @@ export function DarkStatementSection() {
   return (
     <section aria-labelledby="statement-heading" className="on-dark relative overflow-hidden bg-ink text-white">
       <div aria-hidden className="bg-tech-grid-dark absolute inset-0" />
+      <div aria-hidden className="glow-green-dark pointer-events-none absolute -left-60 -top-60 size-[720px]" />
       <div
         aria-hidden
         className="pointer-events-none absolute -right-40 top-1/2 size-[560px] -translate-y-1/2 opacity-30 sm:-right-24 sm:opacity-50 lg:opacity-70 sm:size-[680px] lg:right-[-80px] lg:size-[760px]"
@@ -61,27 +63,18 @@ export function DarkStatementSection() {
         <RingGraphic />
       </div>
 
-      <Container className="relative py-24 sm:py-32 lg:py-40">
+      <Container className="relative py-16 sm:py-20 lg:py-24">
         <Reveal className="max-w-[820px]">
           <Eyebrow tone="light">{statement.label}</Eyebrow>
           <h2
             id="statement-heading"
-            className="mt-7 text-balance text-[36px] font-semibold leading-[1.05] tracking-[-0.03em] sm:text-[52px] lg:text-[64px]"
+            className="mt-5 text-balance text-[36px] font-semibold leading-[1.05] tracking-[-0.03em] sm:text-[52px] lg:text-[64px]"
           >
-            {statement.heading}
+            {richHeading(statement.heading)}
           </h2>
-          <p className="mt-7 max-w-[620px] text-[17px] leading-[1.65] text-white/75 sm:text-lg">{statement.body}</p>
+          <p className="mt-5 max-w-[620px] text-[17px] leading-[1.65] text-white/75 sm:text-lg">{statement.body}</p>
 
-          <ul className="mt-10 flex flex-col gap-3 border-t border-white/15 pt-6 sm:flex-row sm:gap-10">
-            {statement.points.map((p, i) => (
-              <li key={p} className="flex items-center gap-3 text-[14px] text-white/85">
-                <span className="font-mono text-[11px] text-white/45">{String(i + 1).padStart(2, "0")}</span>
-                {p}
-              </li>
-            ))}
-          </ul>
-
-          <Button href={primaryCta.href} variant="inverse" className="mt-10">
+          <Button href={primaryCta.href} variant="inverse" className="mt-8">
             {primaryCta.label}
           </Button>
         </Reveal>

@@ -5,8 +5,8 @@ import { Container } from "@/components/ui/Section";
 export function Footer() {
   return (
     <footer className="on-dark bg-ink text-white">
-      <Container className="pt-16 sm:pt-20">
-        <div className="grid gap-12 border-b border-white/10 pb-14 lg:grid-cols-12">
+      <Container className="pt-12 sm:pt-14">
+        <div className="grid gap-10 border-b border-white/10 pb-10 lg:grid-cols-12">
           <div className="lg:col-span-5">
             {/* Logo sits on a white plate so the supplied asset is shown with its original colours */}
             <div className="inline-flex bg-white p-4">
@@ -48,7 +48,7 @@ export function Footer() {
 
         <div className="border-b border-white/10 py-7">
           <p className="max-w-[760px] text-[13px] leading-[1.6] text-white/60">
-            <span className="mr-2 font-medium uppercase tracking-[0.12em] text-white/80">Research use notice.</span>
+            <span className="mr-2 font-medium uppercase tracking-[0.12em] text-green-light">Research use notice.</span>
             {footer.notice}
           </p>
         </div>

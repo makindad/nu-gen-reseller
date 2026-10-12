@@ -60,7 +60,7 @@ export const nav = [
 
 export const hero = {
   eyebrow: "UK Reseller & Wholesale Partnerships",
-  heading: "Partner With NU-GEN Research",
+  heading: "Partner With NU-GEN *Research*",
   body: "We are expanding our UK reseller network and are looking to work with established wholesalers, distributors and specialist retailers seeking professionally presented research products backed by traceability, documentation and product verification.",
   secondaryCta: { label: "View Product Range", href: "#products" },
   qualifier: "For qualified UK business enquiries only.",
@@ -88,10 +88,9 @@ export const trustItems = [
 
 export const wholesale = {
   label: "01 — Wholesale",
-  heading: "Built for Professional Reseller Partnerships",
+  heading: "Built for Professional *Reseller* Partnerships",
   paragraphs: [
     "NU-GEN Research is building long-term relationships with qualified businesses across the United Kingdom. Our reseller programme is designed for companies that already serve a professional customer base and want a consistent, well-documented research brand to represent.",
-    "Every partnership begins with an application. We review each business individually so that the brand is represented accurately and responsibly wherever it is stocked.",
   ],
   suitableHeading: "The programme is suitable for",
   suitableFor: [
@@ -111,7 +110,6 @@ export const wholesale = {
       "Capacity for repeat orders",
       "Commitment to responsible product representation",
     ],
-    footnote: "Applications that do not yet meet every criterion can still be submitted and are reviewed individually.",
   },
   cta: { label: "Discuss Reseller Opportunities", href: "#apply" },
 } as const;
@@ -146,18 +144,18 @@ export const products: Product[] = [
 
 export const productRange = {
   label: "02 — Product Range",
-  heading: "Explore the NU-GEN Research Range",
-  intro:
-    "A consistent, technically presented range with clear product identification on every pack. Imagery shown is representative of the range available to approved partners.",
+  heading: "Explore the NU-GEN Research *Range*",
+  intro: "A consistent, technically presented range with clear identification on every pack.",
+  badge: "Verified",
   note: "Full product availability, reseller pricing and wholesale information can be provided following application approval.",
   cta: { label: "Request Wholesale Information", href: "#apply" },
 } as const;
 
 export const benefits = {
   label: "03 — Partnership",
-  heading: "Why Businesses Choose NU-GEN",
+  heading: "Why Businesses Choose *NU-GEN*",
   intro:
-    "A partnership built on presentation, documentation and a direct working relationship — the foundations a professional reseller needs to represent a research brand with confidence.",
+    "Presentation, documentation and a direct working relationship — the foundations a professional reseller needs.",
   items: [
     {
       icon: "presentation",
@@ -191,9 +189,9 @@ export const benefits = {
  */
 export const quality = {
   label: "04 — Quality & Traceability",
-  heading: "Confidence Through Verification and Documentation",
+  heading: "Confidence Through *Verification* and Documentation",
   intro:
-    "Partners need to know what they are stocking and be able to answer questions about it. Our approach is built around identification, verification and documentation at product level.",
+    "Partners need to know exactly what they are stocking. Our approach is built around identification, verification and documentation.",
   pillars: [
     {
       code: "QV-01",
@@ -236,14 +234,13 @@ export const quality = {
 
 export const statement = {
   label: "NU-GEN Research",
-  heading: "A Research Brand Designed for Professional Distribution",
+  heading: "A Research Brand Designed for *Professional Distribution*",
   body: "NU-GEN combines distinctive product presentation, verification and professional B2B support to create a stronger experience for approved reseller partners.",
-  points: ["Distinctive presentation", "Verification", "Professional B2B support"],
 } as const;
 
 export const faq = {
   label: "FAQ",
-  heading: "Reseller Questions",
+  heading: "Reseller *Questions*",
   items: [
     {
       q: "Who can apply to become a reseller?",
@@ -270,7 +267,7 @@ export const faq = {
 
 export const application = {
   label: "05 — Become a Reseller",
-  heading: "Apply to Become a NU-GEN Reseller",
+  heading: "Apply to Become a NU-GEN *Reseller*",
   body: "Tell us about your business and our team can review whether there is a suitable opportunity to work together.",
   steps: [
     { title: "Submit your application", body: "Share your business details and how you currently trade." },

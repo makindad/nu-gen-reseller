@@ -10,6 +10,8 @@
   --color-blue-deep: #0b4a84; /* hover/pressed state of primary blue */
   --color-green: #4a8b2c;
   --color-green-2: #4f8f32;
+  --color-green-ink: #3b7323; /* green for small text on light backgrounds (5.7:1) */
+  --color-green-light: #7dbe57; /* green on near-black backgrounds */
   --color-ink: #111315;
   --color-charcoal: #34383c;
   --color-muted: #5c6166; /* secondary text — 6.1:1 on off-white */
@@ -20,6 +22,7 @@
   --color-error: #b42318; /* form validation only */
 
   --font-sans: "Inter Variable", Inter, "Helvetica Neue", Arial, sans-serif;
+  --font-serif: "Newsreader Variable", Georgia, "Times New Roman", serif;
   --font-mono: ui-monospace, "SFMono-Regular", Menlo, Consolas, monospace;
 
   --radius-xs: 2px;
@@ -85,6 +88,37 @@
 }
 
 @layer components {
+  /* Green italic accent word in headings — mirrors the main NU-GEN site */
+  .accent {
+    font-family: var(--font-serif);
+    font-style: italic;
+    font-weight: 400;
+    font-size: 1.06em;
+    letter-spacing: -0.015em;
+    padding-right: 0.06em;
+    background-image: linear-gradient(100deg, #3e7f26 0%, var(--color-green) 45%, #63a83c 100%);
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+  }
+  .on-dark .accent {
+    background-image: linear-gradient(100deg, #6fb04a 0%, var(--color-green-light) 50%, #a3d47e 100%);
+  }
+  @media (forced-colors: active) {
+    .accent {
+      background: none;
+      color: CanvasText;
+    }
+  }
+
+  /* Soft green glow used behind the hero, dark section and form */
+  .glow-green {
+    background: radial-gradient(closest-side, rgb(74 139 44 / 0.16), rgb(74 139 44 / 0) 100%);
+  }
+  .glow-green-dark {
+    background: radial-gradient(closest-side, rgb(125 190 87 / 0.18), rgb(125 190 87 / 0) 100%);
+  }
+
   /* Scroll reveal: only hides content once JS has confirmed it can reveal it,
      so the page is fully readable without JavaScript. */
   .js .reveal {

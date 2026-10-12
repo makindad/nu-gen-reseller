@@ -38,6 +38,8 @@ In development, form submissions to the built-in route are logged to the termina
 | Example batch / catalogue formats | `hero.annotations` and `quality.specimen` in `site.ts` |
 | Policy links | `footer.links` in `site.ts` |
 | Brand colours | `@theme` block in `src/app/globals.css` |
+| Green accent words in headings | wrap words in `*asterisks*` in any `heading` in `site.ts`, e.g. `"Partner With NU-GEN *Research*"` |
+| Accent serif font | `--font-serif` in `globals.css` (Newsreader, self-hosted) — swap for the main site's serif if different |
 
 Add or remove products by editing the array — the grid adapts (2 columns mobile, 3 tablet, 4 desktop).
 
@@ -51,7 +53,7 @@ Add or remove products by editing the array — the grid adapts (2 columns mobil
 
 ## Form
 
-**Google Sheet delivery:** follow the steps at the top of `google-sheets/apps-script.gs`, then set `RESELLER_WEBHOOK_URL` in Vercel to the script's `/exec?key=...` URL.
+**Google Sheet delivery:** follow the steps at the top of `google-sheets/apps-script.gs`, then set `RESELLER_WEBHOOK_URL` in Vercel to the script's `/exec` URL.
 
 
 - Single application form (`src/components/ResellerForm.tsx`), validated on the client and again on the server

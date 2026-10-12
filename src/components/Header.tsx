@@ -74,13 +74,13 @@ export function Header() {
 
           <div className="flex items-center gap-2">
             <div className="hidden md:block">
-              <Button href={primaryCta.href} className="!min-h-11 !px-5 !text-[14px]">
+              <Button href={primaryCta.href} className="!min-h-11 !text-[14px]">
                 {primaryCta.label}
               </Button>
             </div>
             <button
               type="button"
-              className="inline-flex size-11 items-center justify-center rounded-xs border border-line text-ink transition-colors hover:border-ink lg:hidden"
+              className="inline-flex size-11 items-center justify-center rounded-full border border-line text-ink transition-colors hover:border-ink lg:hidden"
               aria-expanded={open}
               aria-controls="mobile-menu"
               aria-label={open ? "Close menu" : "Open menu"}

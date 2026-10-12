@@ -3,7 +3,7 @@ import { Check } from "lucide-react";
 import { hero, primaryCta } from "@/content/site";
 import { Button } from "@/components/ui/Button";
 import { Container, Eyebrow } from "@/components/ui/Section";
-import { nowrapBrand } from "@/components/ui/nowrapBrand";
+import { richHeading } from "@/components/ui/nowrapBrand";
 
 function CornerTicks() {
   const tick = "absolute size-3 border-ink/30";
@@ -20,7 +20,15 @@ function CornerTicks() {
 export function Hero() {
   return (
     <section id="top" aria-labelledby="hero-heading" className="relative overflow-hidden bg-white">
-      <Container className="grid items-center gap-12 pb-16 pt-10 sm:pt-14 lg:grid-cols-12 lg:gap-10 lg:pb-24 lg:pt-16">
+      <div
+        aria-hidden
+        className="glow-green pointer-events-none absolute -right-72 top-40 size-[560px] sm:-right-24 sm:-top-56 sm:size-[760px] lg:-right-40"
+      />
+      <div
+        aria-hidden
+        className="glow-green pointer-events-none absolute -bottom-72 -left-64 size-[620px] opacity-60"
+      />
+      <Container className="relative grid items-center gap-10 pb-12 pt-8 sm:pt-10 lg:grid-cols-12 lg:gap-10 lg:pb-16 lg:pt-12">
         {/* Copy */}
         <div className="lg:col-span-6 xl:col-span-6">
           <div className="animate-reveal">
@@ -28,14 +36,14 @@ export function Hero() {
           </div>
           <h1
             id="hero-heading"
-            className="mt-6 animate-reveal text-balance text-[44px] font-semibold leading-[1.02] tracking-[-0.035em] text-ink [animation-delay:80ms] sm:text-[56px] lg:text-[66px] xl:text-[76px]"
+            className="mt-5 animate-reveal text-balance text-[44px] font-semibold leading-[1.02] tracking-[-0.035em] text-ink [animation-delay:80ms] sm:text-[56px] lg:text-[66px] xl:text-[76px]"
           >
-            {nowrapBrand(hero.heading)}
+            {richHeading(hero.heading)}
           </h1>
-          <p className="mt-6 max-w-[560px] animate-reveal text-[17px] leading-[1.6] text-charcoal [animation-delay:160ms] sm:text-lg">
+          <p className="mt-5 max-w-[560px] animate-reveal text-[17px] leading-[1.6] text-charcoal [animation-delay:160ms] sm:text-lg">
             {hero.body}
           </p>
-          <div className="mt-9 flex animate-reveal flex-col gap-3 [animation-delay:240ms] sm:flex-row sm:flex-wrap">
+          <div className="mt-8 flex animate-reveal flex-col gap-3 [animation-delay:240ms] sm:flex-row sm:flex-wrap">
             <Button href={primaryCta.href}>{primaryCta.label}</Button>
             <Button href={hero.secondaryCta.href} variant="secondary" icon="down">
               {hero.secondaryCta.label}
@@ -50,7 +58,7 @@ export function Hero() {
         {/* Product display composition */}
         <div className="animate-reveal [animation-delay:200ms] lg:col-span-6">
           <figure className="relative">
-            <div className="bg-tech-grid relative aspect-square w-full overflow-hidden border border-line bg-paper sm:aspect-[4/3] lg:aspect-[5/5.2] xl:aspect-[1/1]">
+            <div className="bg-tech-grid relative aspect-square w-full overflow-hidden border border-line bg-paper sm:aspect-[4/3] lg:aspect-[6/5]">
               <CornerTicks />
 
               {/* Plinth line */}

@@ -4,7 +4,7 @@ import { ArrowRight, ArrowDown } from "lucide-react";
 type Variant = "primary" | "secondary" | "inverse" | "text";
 
 const base =
-  "group inline-flex items-center justify-center gap-2.5 rounded-xs text-[15px] font-medium tracking-[-0.005em] transition-colors duration-200 min-h-12 px-6 select-none";
+  "group inline-flex items-center justify-center gap-3 rounded-full text-[15px] font-medium tracking-[-0.005em] transition-colors duration-200 min-h-12 select-none";
 
 const variants: Record<Variant, string> = {
   primary: "bg-blue text-white hover:bg-blue-deep active:bg-blue-deep",
@@ -19,20 +19,35 @@ type Props = ComponentPropsWithoutRef<"a"> & {
   children: ReactNode;
 };
 
-/** Anchor-based CTA. Every reseller CTA on the page links to #apply. */
+/**
+ * Anchor-based CTA. Every reseller CTA on the page links to #apply.
+ * Primary and inverse buttons carry the arrow in a green circle, as on the main NU-GEN site.
+ */
 export function Button({ variant = "primary", icon = "arrow", className = "", children, ...rest }: Props) {
+  const greenCircle = icon === "arrow" && (variant === "primary" || variant === "inverse");
+  const padding = variant === "text" ? "" : greenCircle ? "pl-6 pr-2" : "px-6";
   const Icon = icon === "down" ? ArrowDown : icon === "arrow" ? ArrowRight : null;
+
   return (
-    <a className={`${base} ${variants[variant]} ${className}`} {...rest}>
+    <a className={`${base} ${padding} ${variants[variant]} ${className}`} {...rest}>
       <span>{children}</span>
-      {Icon && (
-        <Icon
+      {greenCircle ? (
+        <span
           aria-hidden
-          className={`size-4 shrink-0 transition-transform duration-200 ${
-            icon === "down" ? "group-hover:translate-y-0.5" : "group-hover:translate-x-0.5"
-          }`}
-          strokeWidth={1.75}
-        />
+          className="inline-flex size-8 shrink-0 items-center justify-center rounded-full bg-green text-white transition-transform duration-200 group-hover:translate-x-0.5"
+        >
+          <ArrowRight className="size-4" strokeWidth={2} />
+        </span>
+      ) : (
+        Icon && (
+          <Icon
+            aria-hidden
+            className={`size-4 shrink-0 transition-transform duration-200 ${
+              icon === "down" ? "group-hover:translate-y-0.5" : "group-hover:translate-x-0.5"
+            }`}
+            strokeWidth={1.75}
+          />
+        )
       )}
     </a>
   );

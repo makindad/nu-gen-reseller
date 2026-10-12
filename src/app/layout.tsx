@@ -1,5 +1,6 @@
 import type { Metadata, Viewport } from "next";
 import "@fontsource-variable/inter";
+import "@fontsource-variable/newsreader/opsz-italic.css";
 import "./globals.css";
 import { site } from "@/content/site";
 

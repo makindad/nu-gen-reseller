@@ -10,7 +10,7 @@ export function TrustBar() {
           {trustItems.map((item, i) => (
             <li
               key={item.title}
-              className={`flex items-start gap-3.5 py-6 sm:items-center sm:gap-4 sm:py-7 lg:px-8 lg:first:pl-0 ${
+              className={`flex items-start gap-3.5 py-5 sm:items-center sm:gap-4 lg:px-8 lg:first:pl-0 ${
                 i % 2 === 1 ? "border-l border-line pl-5 sm:pl-8" : "pr-4"
               } ${i >= 2 ? "border-t border-line lg:border-t-0" : ""} ${i === 2 ? "lg:border-l lg:pl-8" : ""}`}
             >
